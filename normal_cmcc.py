@@ -1,10 +1,12 @@
-import requests, yaml
-cfg = yaml.safe_load(open("config.yaml", encoding="utf-8"))
+# -*- coding: utf-8 -*-
+"""CMCC ePortal 登录入口。"""
+import eportal
+
 def login(ip, device=0):
-    u = (cfg["base"] + "?c=Portal&a=login&callback=dr1003&login_method=1"
-         "&user_account=%2C{device}%2C{account}%40{operator}"
-         "&user_password={password}&wlan_user_ip={ip}").format(device=device, ip=ip, **cfg)
-    print(requests.get(u).text)
+    cfg = eportal.load_config(); prof = eportal.profile(cfg); me = cfg["user_info"]
+    return eportal.request(prof["base"] + prof["login"].format(
+        account=me["account"], password=me["password"], operator="cmcc", ip=ip, device=device))
+
 if __name__ == "__main__":
-    login("192.168.x.x")
+    print(login(eportal.local_ip()))
  
