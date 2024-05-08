@@ -1,9 +1,9 @@
 current_profile: CMCC
 profiles:
   CMCC:
-    base: http://192.168.200.2:801/eportal/
-    login: "login?callback=dr1003&login_method=1&user_account=%2C{device}%2C{account}%40{operator}&user_password={password}&wlan_user_ip={ip}"
-    unbind: "unbind_mac?callback=dr1002&user_account={account}%40cmcc&wlan_user_mac=000000000000&wlan_user_ip={ip}"
+    base: http://192.168.200.2:801/eportal/?c=Portal&a=
+    login: "login&callback=dr1003&login_method=1&user_account=%2C{device}%2C{account}%40{operator}&user_password={password}&wlan_user_ip={ip}"
+    unbind: "unbind_mac&callback=dr1002&user_account={account}%40{operator}&wlan_user_mac=000000000000&wlan_user_ip={ip}"
   CQU:
     base: https://login.cqu.edu.cn:802/eportal/portal/
     login: "login?callback=dr1004&user_account=,{device},{account}&user_password={password}&wlan_user_ip={ip}"
@@ -12,5 +12,6 @@ profiles:
 user_info:
   account: xxxx
   password: xxxxx
+  operator: cmcc
   device: 1
  
