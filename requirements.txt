@@ -1,4 +1,4 @@
-requests
-PyYAML
-ping3
-psutil
+requests==2.31.0
+PyYAML==6.0.2
+ping3==4.0.5
+psutil==5.9.5
