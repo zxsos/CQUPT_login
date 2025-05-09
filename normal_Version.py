@@ -38,14 +38,14 @@ def login(arg, ip, t):
     if '"msg":""' in res.text:
         print('当前设备已登录 或 WiFi未连接')
         return
-    elif r'\u8ba4\u8bc1\u6210\u529f' in res.text:
+    if r'\u8ba4\u8bc1\u6210\u529f' in res.text:
         print('端口登录成功')
         re.append(1)
         return
-    elif 'bGRhcCBhdXRoIGVycm9y' in res.text:
+    if 'bGRhcCBhdXRoIGVycm9y' in res.text:
         print("密码错误")
         return
-    elif 'aW51c2UsIGxvZ2luIGFnYWluL' in res.text:
+    if 'aW51c2UsIGxvZ2luIGFnYWluL' in res.text:
         login(ip, arg)
     else:
         print("失败")
