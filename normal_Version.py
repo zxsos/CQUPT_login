@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 import socket
 import time
@@ -34,7 +33,6 @@ def login(arg, ip, t):
     res = requests.get(
         'http://192.168.200.2:801/eportal/?c=Portal&a=login&callback=dr1003&login_method=1&user_account=%2C{device}%2C{account}%40{operator}&user_password={password}&wlan_user_ip={ip}&wlan_user_ipv6=&wlan_user_mac=000000000000&wlan_ac_ip=&wlan_ac_name='.format_map(
             arg))
-    # print(res.text)
     if '"msg":""' in res.text:
         print('当前设备已登录 或 WiFi未连接')
         return
